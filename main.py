@@ -107,15 +107,14 @@ def organize(folder, new_folder):
             organize_file(current_file, current_dir+new_folder+'/', extention)
 
 if len(sys.argv) != 3:
-    print(""" Como Usar:
+    print(""" Como Usar: python3 main.py PASTA NOVA_PASTA
           
- Este programa recebe dois argumentos: A pasta que você deseja organizar e o nome da pasta que receberá os arquivos.
- Os arquivos serão movidos para pastas de acordo com sua extensão (.png para Imagens, .txt para Documentos, etc).
+ Os arquivos serão movidos para pastas de acordo com sua extensão.
+ Por exemplo, um .png será movido de PASTA para Imagens/NOVA_PASTA
 
  Exemplo de uso:
  python3 main.py Downloads misc
-
- Neste exemplo, os arquivos serão retirados da pasta Downloads e movidos para suas respectivas pastas, e então dentro de uma nova pasta 'misc'.
+ 
  'misc' é o nome padrão da pasta.""")
 
 # 1 -> Folder to organize
