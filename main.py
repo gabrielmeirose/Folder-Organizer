@@ -107,15 +107,16 @@ def organize(folder, new_folder):
             organize_file(current_file, current_dir+new_folder+'/', extention)
 
 if len(sys.argv) != 3:
-    print("""How to Use:
-This program takes two arguments: The folder you want to organzie, and the name of the folder that will recieve the files.
-Files will be moved to folders according to their extention (.png to Images, .txt to Documents, etc)
+    print(""" Como Usar:
+          
+ Este programa recebe dois argumentos: A pasta que você deseja organizar e o nome da pasta que receberá os arquivos.
+ Os arquivos serão movidos para pastas de acordo com sua extensão (.png para Imagens, .txt para Documentos, etc).
 
-Example usage:
-    python3 main.py Downloads misc
+ Exemplo de uso:
+ python3 main.py Downloads misc
 
-In this example the files will be taken from the Downloads folder and moved to their respective folders, and then inside a new 'misc' folder
-'misc' is the default folder name""")
+ Neste exemplo, os arquivos serão retirados da pasta Downloads e movidos para suas respectivas pastas, e então dentro de uma nova pasta 'misc'.
+ 'misc' é o nome padrão da pasta.""")
 
 # 1 -> Folder to organize
 # 2 -> Folder name
