@@ -2,6 +2,7 @@ import os
 from getpass import getuser
 import shutil
 import sys
+from datetime import datetime
 
 
 USERNAME = getuser()
@@ -53,7 +54,10 @@ def make_folder(name, path):
 def organize_file(source, folder_path, folder_name):
     # Creates a folder named 'folder_name' at 'folder_path', then puts the file at 'source' in it.
 
-    new_dir = make_folder(folder_name, folder_path)
+    if folder_name == '':
+        new_dir = folder_path
+    else:
+        new_dir = make_folder(folder_name, folder_path)
 
     move_file(source, new_dir)
 
@@ -64,8 +68,8 @@ def organize(folder, new_folder):
     os.chdir(path(folder))
     current_dir = path(folder)
 
-    if new_folder == '':
-        new_folder = 'misc'
+    if not new_folder:
+        new_folder = str(datetime.now().date())
 
     # Variable to check the possible extentions
     filetypes = {
@@ -105,8 +109,13 @@ def organize(folder, new_folder):
 
             # Moves the file to the new folder
             organize_file(current_file, current_dir+new_folder+'/', extention)
+    
+    print(f'Default folder name set to "{new_folder}"')
+    print(f"Your {sys.argv[1]} folder has been organized!")
 
-if len(sys.argv) != 3:
+
+
+if len(sys.argv) not in [2,3]:
     print(""" Como Usar: python3 main.py PASTA NOVA_PASTA
           
  Os arquivos serão movidos para pastas de acordo com sua extensão.
@@ -117,9 +126,7 @@ if len(sys.argv) != 3:
  
  'misc' é o nome padrão da pasta.""")
 
-# 1 -> Folder to organize
-# 2 -> Folder name
-
-else:
+elif len(sys.argv) == 3:
     organize(sys.argv[1], sys.argv[2])
-    print(f"Your {sys.argv[1]} folder has been organized!")
+else:
+    organize(sys.argv[1], False)
