@@ -120,11 +120,10 @@ if len(sys.argv) not in [2,3]:
           
  Os arquivos serão movidos para pastas de acordo com sua extensão.
  Por exemplo, um .png será movido de PASTA para Imagens/NOVA_PASTA
+ Caso não especifique um nome para NOVA_PASTA, será usado a data atual do sistema
 
  Exemplo de uso:
- python3 main.py Downloads misc
- 
- 'misc' é o nome padrão da pasta.""")
+ python3 main.py Downloads misc""")
 
 elif len(sys.argv) == 3:
     organize(sys.argv[1], sys.argv[2])
